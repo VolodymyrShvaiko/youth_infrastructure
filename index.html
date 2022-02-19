@@ -1,0 +1,718 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css"><link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"><link rel="stylesheet" href="css/L.Control.Locate.min.css">
+        <link rel="stylesheet" href="css/qgis2web.css">
+        <link rel="stylesheet" href="css/Control.OSMGeocoder.css">
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script><script src="js/L.Control.Locate.min.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="js/Control.OSMGeocoder.js"></script>
+        <script src="data/TOT_1.js"></script>
+        <script src="data/Terhromads_2.js"></script>
+        <script src="data/Region_3.js"></script>
+        <script src="data/Institutionsofyouthinfrastructureinterritorialcommunities_4.js"></script>
+        <script src="data/MTD_5.js"></script>
+        <script src="data/Educationalinstitutions_6.js"></script>
+        <script src="data/Youthinfrastructure_7.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:17, minZoom:7
+        }).fitBounds([[48.1455570337,37.8805555728],[49.467712939,41.4225384647]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
+        L.control.locate().addTo(map);
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        var overlay_Basemap_0 = L.tileLayer('http://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            opacity: 1.0
+        });
+        overlay_Basemap_0.addTo(map);
+        map.addLayer(overlay_Basemap_0);
+        function pop_TOT_1(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NAME_UA'] !== null ? Autolinker.link(String(feature.properties['NAME_UA'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_TOT_1_0() {
+            return {
+                pane: 'pane_TOT_1',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(140,142,136,0.749019607843)',
+            }
+        }
+        map.createPane('pane_TOT_1');
+        map.getPane('pane_TOT_1').style.zIndex = 401;
+        map.getPane('pane_TOT_1').style['mix-blend-mode'] = 'normal';
+        var layer_TOT_1 = new L.geoJson(json_TOT_1, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_TOT_1',
+            onEachFeature: pop_TOT_1,
+            style: style_TOT_1_0,
+        });
+        bounds_group.addLayer(layer_TOT_1);
+        map.addLayer(layer_TOT_1);
+        function pop_Terhromads_2(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['ADMIN_1'] !== null ? Autolinker.link(String(feature.properties['ADMIN_1'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['ADMIN_2'] !== null ? Autolinker.link(String(feature.properties['ADMIN_2'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['ADMIN_3'] !== null ? Autolinker.link(String(feature.properties['ADMIN_3'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['TYPE'] !== null ? Autolinker.link(String(feature.properties['TYPE'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Terhromads_2_0() {
+            return {
+                pane: 'pane_Terhromads_2',
+                opacity: 1,
+                color: 'rgba(203,23,92,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(130,35,20,0.0)',
+            }
+        }
+        map.createPane('pane_Terhromads_2');
+        map.getPane('pane_Terhromads_2').style.zIndex = 402;
+        map.getPane('pane_Terhromads_2').style['mix-blend-mode'] = 'normal';
+        var layer_Terhromads_2 = new L.geoJson(json_Terhromads_2, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Terhromads_2',
+            onEachFeature: pop_Terhromads_2,
+            style: style_Terhromads_2_0,
+        });
+        bounds_group.addLayer(layer_Terhromads_2);
+        map.addLayer(layer_Terhromads_2);
+        function pop_Region_3(feature, layer) {
+        }
+
+        function style_Region_3_0() {
+            return {
+                pane: 'pane_Region_3',
+                opacity: 1,
+                color: 'rgba(203,23,26,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 3.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(212,123,35,0.0)',
+            }
+        }
+        map.createPane('pane_Region_3');
+        map.getPane('pane_Region_3').style.zIndex = 403;
+        map.getPane('pane_Region_3').style['mix-blend-mode'] = 'normal';
+        var layer_Region_3 = new L.geoJson(json_Region_3, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Region_3',
+            onEachFeature: pop_Region_3,
+            style: style_Region_3_0,
+        });
+        bounds_group.addLayer(layer_Region_3);
+        map.addLayer(layer_Region_3);
+        function pop_Institutionsofyouthinfrastructureinterritorialcommunities_4(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Область</th>\
+                        <td>' + (feature.properties['ADMIN_1'] !== null ? Autolinker.link(String(feature.properties['ADMIN_1'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Район</th>\
+                        <td>' + (feature.properties['ADMIN_2'] !== null ? Autolinker.link(String(feature.properties['ADMIN_2'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Територіальна громада</th>\
+                        <td>' + (feature.properties['ADMIN_3'] !== null ? Autolinker.link(String(feature.properties['ADMIN_3'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Тип територіальної громади</th>\
+                        <td>' + (feature.properties['TYPE'] !== null ? Autolinker.link(String(feature.properties['TYPE'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Загальна кількість обєктів молодіжної інфраструктури</th>\
+                        <td>' + (feature.properties['F_4'] !== null ? Autolinker.link(String(feature.properties['F_4'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Наявність дорадчих органів молодіжного представництва</th>\
+                        <td>' + (feature.properties['F_1'] !== null ? Autolinker.link(String(feature.properties['F_1'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Молодіжні громадські обєднання</th>\
+                        <td>' + (feature.properties['F_2'] !== null ? Autolinker.link(String(feature.properties['F_2'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Молодіжні центри</th>\
+                        <td>' + (feature.properties['F_3'] !== null ? Autolinker.link(String(feature.properties['F_3'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Молодіжні простори</th>\
+                        <td>' + (feature.properties['F_5'] !== null ? Autolinker.link(String(feature.properties['F_5'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Дитячо-юнацькі табори</th>\
+                        <td>' + (feature.properties['F_6'] !== null ? Autolinker.link(String(feature.properties['F_6'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Заклади санаторно-курортного типу</th>\
+                        <td>' + (feature.properties['F_7'] !== null ? Autolinker.link(String(feature.properties['F_7'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Туристичні бази</th>\
+                        <td>' + (feature.properties['F_8'] !== null ? Autolinker.link(String(feature.properties['F_8'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Центри профілактики і боротьби зі СНІДом</th>\
+                        <td>' + (feature.properties['F_9'] !== null ? Autolinker.link(String(feature.properties['F_9'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Проєкти міжнародної технічної допомоги</th>\
+                        <td>' + (feature.properties['F_10'] !== null ? Autolinker.link(String(feature.properties['F_10'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Наявність потреби залучення  проєктів міжнародної технічної допомоги</th>\
+                        <td>' + (feature.properties['F_11'] !== null ? Autolinker.link(String(feature.properties['F_11'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Чим саме проєкти міжнародної технічної допомоги допоможуть тергромаді</th>\
+                        <td>' + (feature.properties['F_12'] !== null ? Autolinker.link(String(feature.properties['F_12'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Institutionsofyouthinfrastructureinterritorialcommunities_4_0(feature) {
+            switch(String(feature.properties['F_4_1'])) {
+                case 'Відсутні':
+                    return {
+                pane: 'pane_Institutionsofyouthinfrastructureinterritorialcommunities_4',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(197,255,182,0.549019607843)',
+            }
+                    break;
+                case '1-3':
+                    return {
+                pane: 'pane_Institutionsofyouthinfrastructureinterritorialcommunities_4',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(63,167,89,0.549019607843)',
+            }
+                    break;
+                case '4-7':
+                    return {
+                pane: 'pane_Institutionsofyouthinfrastructureinterritorialcommunities_4',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(0,97,38,0.549019607843)',
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_Institutionsofyouthinfrastructureinterritorialcommunities_4');
+        map.getPane('pane_Institutionsofyouthinfrastructureinterritorialcommunities_4').style.zIndex = 404;
+        map.getPane('pane_Institutionsofyouthinfrastructureinterritorialcommunities_4').style['mix-blend-mode'] = 'normal';
+        var layer_Institutionsofyouthinfrastructureinterritorialcommunities_4 = new L.geoJson(json_Institutionsofyouthinfrastructureinterritorialcommunities_4, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Institutionsofyouthinfrastructureinterritorialcommunities_4',
+            onEachFeature: pop_Institutionsofyouthinfrastructureinterritorialcommunities_4,
+            style: style_Institutionsofyouthinfrastructureinterritorialcommunities_4_0,
+        });
+        bounds_group.addLayer(layer_Institutionsofyouthinfrastructureinterritorialcommunities_4);
+        map.addLayer(layer_Institutionsofyouthinfrastructureinterritorialcommunities_4);
+        function pop_MTD_5(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Назва проєкту</th>\
+                        <td>' + (feature.properties['Name'] !== null ? Autolinker.link(String(feature.properties['Name'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Область</th>\
+                        <td>' + (feature.properties['Region'] !== null ? Autolinker.link(String(feature.properties['Region'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Район</th>\
+                        <td>' + (feature.properties['District'] !== null ? Autolinker.link(String(feature.properties['District'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Територіальна громада</th>\
+                        <td>' + (feature.properties['Terhromads'] !== null ? Autolinker.link(String(feature.properties['Terhromads'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Населений пункт</th>\
+                        <td>' + (feature.properties['Settlement'] !== null ? Autolinker.link(String(feature.properties['Settlement'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Вулиця та номер будинку</th>\
+                        <td>' + (feature.properties['Str_bud'] !== null ? Autolinker.link(String(feature.properties['Str_bud'])) : '') + '</td>\
+                    </tr>\
+                   <tr>\
+                        <th scope="row">Напрям проєкту</th>\
+                        <td>' + (feature.properties['Type'] !== null ? Autolinker.link(String(feature.properties['Type'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Донорська організація</th>\
+                        <td>' + (feature.properties['Donor'] !== null ? Autolinker.link(String(feature.properties['Donor'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Термін реалізації</th>\
+                        <td>' + (feature.properties['Data'] !== null ? Autolinker.link(String(feature.properties['Data'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Обсяг отриманої допомоги (грн)</th>\
+                        <td>' + (feature.properties['Sum'] !== null ? Autolinker.link(String(feature.properties['Sum'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Код ідентифікатор</th>\
+                        <td>' + (feature.properties['id'] !== null ? Autolinker.link(String(feature.properties['id'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_MTD_5_0() {
+            return {
+                pane: 'pane_MTD_5',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/MTD.svg',
+            iconSize: [30, 30]
+        }),
+            }
+        }
+        map.createPane('pane_MTD_5');
+        map.getPane('pane_MTD_5').style.zIndex = 405;
+        map.getPane('pane_MTD_5').style['mix-blend-mode'] = 'normal';
+        var layer_MTD_5 = new L.geoJson(json_MTD_5, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_MTD_5',
+            onEachFeature: pop_MTD_5,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_MTD_5_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_MTD_5);
+        map.addLayer(layer_MTD_5);
+        function pop_Educationalinstitutions_6(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Назва закладу освіти</th>\
+                        <td>' + (feature.properties['Name'] !== null ? Autolinker.link(String(feature.properties['Name'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Код ІСУО</th>\
+                        <td>' + (feature.properties['Cod ISYO'] !== null ? Autolinker.link(String(feature.properties['Cod ISYO'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Код  ЄДЕБО</th>\
+                        <td>' + (feature.properties['Cod EDEBO'] !== null ? Autolinker.link(String(feature.properties['Cod EDEBO'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Код ЄДРПОУ</th>\
+                        <td>' + (feature.properties['Cod EDRPOY'] !== null ? Autolinker.link(String(feature.properties['Cod EDRPOY'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Рік заснування</th>\
+                        <td>' + (feature.properties['Foundation'] !== null ? Autolinker.link(String(feature.properties['Foundation'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Вид закладу освіти</th>\
+                        <td>' + (feature.properties['Type_1'] !== null ? Autolinker.link(String(feature.properties['Type_1'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Тип закладу освіти</th>\
+                        <td>' + (feature.properties['Type_2'] !== null ? Autolinker.link(String(feature.properties['Type_2'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Форма власності</th>\
+                        <td>' + (feature.properties['Form'] !== null ? Autolinker.link(String(feature.properties['Form'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Код КОАТУУ</th>\
+                        <td>' + (feature.properties['Cod KOATYY'] !== null ? Autolinker.link(String(feature.properties['Cod KOATYY'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Область</th>\
+                        <td>' + (feature.properties['Region'] !== null ? Autolinker.link(String(feature.properties['Region'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Район</th>\
+                        <td>' + (feature.properties['District'] !== null ? Autolinker.link(String(feature.properties['District'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Територіальна громада</th>\
+                        <td>' + (feature.properties['Terhromads'] !== null ? Autolinker.link(String(feature.properties['Terhromads'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Населений пункт</th>\
+                        <td>' + (feature.properties['Settlement'] !== null ? Autolinker.link(String(feature.properties['Settlement'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Вулиця та номер будинку</th>\
+                        <td>' + (feature.properties['Str_bud'] !== null ? Autolinker.link(String(feature.properties['Str_bud'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Телефон</th>\
+                        <td>' + (feature.properties['Phone'] !== null ? Autolinker.link(String(feature.properties['Phone'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Електронна пошта</th>\
+                        <td>' + (feature.properties['Email'] !== null ? Autolinker.link(String(feature.properties['Email'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Веб-сайт</th>\
+                        <td>' + (feature.properties['Website'] !== null ? Autolinker.link(String(feature.properties['Website'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Магістри</th>\
+                        <td>' + (feature.properties['Masters'] !== null ? Autolinker.link(String(feature.properties['Masters'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Бакалаври</th>\
+                        <td>' + (feature.properties['Bachelors'] !== null ? Autolinker.link(String(feature.properties['Bachelors'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Спеціалісти</th>\
+                        <td>' + (feature.properties['Specialists'] !== null ? Autolinker.link(String(feature.properties['Specialists'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Фахові молодші бакалаври</th>\
+                        <td>' + (feature.properties['P_bachelor'] !== null ? Autolinker.link(String(feature.properties['P_bachelor'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Молодші спеціалісти</th>\
+                        <td>' + (feature.properties['M_specialists'] !== null ? Autolinker.link(String(feature.properties['M_specialists'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Загальна кільскість здобувачів освіти</th>\
+                        <td>' + (feature.properties['Sum_std'] !== null ? Autolinker.link(String(feature.properties['Sum_std'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Керівник</th>\
+                        <td>' + (feature.properties['Manager'] !== null ? Autolinker.link(String(feature.properties['Manager'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Опорний</th>\
+                        <td>' + (feature.properties['Oporna'] !== null ? Autolinker.link(String(feature.properties['Oporna'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Філія</th>\
+                        <td>' + (feature.properties['Filia'] !== null ? Autolinker.link(String(feature.properties['Filia'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Сільський</th>\
+                        <td>' + (feature.properties['Rural'] !== null ? Autolinker.link(String(feature.properties['Rural'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Інтернат</th>\
+                        <td>' + (feature.properties['Internat'] !== null ? Autolinker.link(String(feature.properties['Internat'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Ліцензовані обсяги</th>\
+                        <td>' + (feature.properties['Licensed'] !== null ? Autolinker.link(String(feature.properties['Licensed'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Орган управління</th>\
+                        <td>' + (feature.properties['Governance'] !== null ? Autolinker.link(String(feature.properties['Governance'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Проєкти міжнародної технічної допомоги</th>\
+                        <td>' + (feature.properties['MTD'] !== null ? Autolinker.link(String(feature.properties['MTD'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Код ідентифікатор</th>\
+                        <td>' + (feature.properties['Id'] !== null ? Autolinker.link(String(feature.properties['Id'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Educationalinstitutions_6_0(feature) {
+            switch(String(feature.properties['Cod_type'])) {
+                case '1':
+                    return {
+                pane: 'pane_Educationalinstitutions_6',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/Shkola.svg',
+            iconSize: [21, 21]
+        }),
+            }
+                    break;
+                case '2':
+                    return {
+                pane: 'pane_Educationalinstitutions_6',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/Shkola_2.svg',
+            iconSize: [21, 21]
+        }),
+            }
+                    break;
+                case '5':
+                    return {
+                pane: 'pane_Educationalinstitutions_6',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/Shkola_3.svg',
+            iconSize: [21, 21]
+        }),
+            }
+                    break;
+                case '6':
+                    return {
+                pane: 'pane_Educationalinstitutions_6',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/Shkola_4.svg',
+            iconSize: [21, 21]
+        }),
+            }
+                    break;
+                case '4':
+                    return {
+                pane: 'pane_Educationalinstitutions_6',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/Shkola_5.svg',
+            iconSize: [21, 21]
+        }),
+            }
+                    break;
+                case '3':
+                    return {
+                pane: 'pane_Educationalinstitutions_6',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/Shkola_6.svg',
+            iconSize: [21, 21]
+        }),
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_Educationalinstitutions_6');
+        map.getPane('pane_Educationalinstitutions_6').style.zIndex = 406;
+        map.getPane('pane_Educationalinstitutions_6').style['mix-blend-mode'] = 'normal';
+        var layer_Educationalinstitutions_6 = new L.geoJson(json_Educationalinstitutions_6, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Educationalinstitutions_6',
+            onEachFeature: pop_Educationalinstitutions_6,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_Educationalinstitutions_6_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_Educationalinstitutions_6);
+        map.addLayer(layer_Educationalinstitutions_6);
+        function pop_Youthinfrastructure_7(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Назва закладу</th>\
+                        <td>' + (feature.properties['Name'] !== null ? Autolinker.link(String(feature.properties['Name'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Тип закладу</th>\
+                        <td>' + (feature.properties['Type'] !== null ? Autolinker.link(String(feature.properties['Type'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Форма власності</th>\
+                        <td>' + (feature.properties['Form'] !== null ? Autolinker.link(String(feature.properties['Form'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Область</th>\
+                        <td>' + (feature.properties['Region'] !== null ? Autolinker.link(String(feature.properties['Region'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Район</th>\
+                        <td>' + (feature.properties['District'] !== null ? Autolinker.link(String(feature.properties['District'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Територіальна громада</th>\
+                        <td>' + (feature.properties['Terhromads'] !== null ? Autolinker.link(String(feature.properties['Terhromads'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Населений пункт</th>\
+                        <td>' + (feature.properties['Settlement'] !== null ? Autolinker.link(String(feature.properties['Settlement'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Вулиця та номер будинку</th>\
+                        <td>' + (feature.properties['Str_bud'] !== null ? Autolinker.link(String(feature.properties['Str_bud'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Графік роботи</th>\
+                        <td>' + (feature.properties['Work_sch'] !== null ? Autolinker.link(String(feature.properties['Work_sch'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Електронна адреса</th>\
+                        <td>' + (feature.properties['Email'] !== null ? Autolinker.link(String(feature.properties['Email'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Телефон</th>\
+                        <td>' + (feature.properties['Phone'] !== null ? Autolinker.link(String(feature.properties['Phone'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Веб-сайт</th>\
+                        <td>' + (feature.properties['Website'] !== null ? Autolinker.link(String(feature.properties['Website'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Кількість учасників</th>\
+                        <td>' + (feature.properties['Number'] !== null ? Autolinker.link(String(feature.properties['Number'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Балансоутримувач</th>\
+                        <td>' + (feature.properties['Budgeting'] !== null ? Autolinker.link(String(feature.properties['Budgeting'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Проєкти міжнародної технічної допомоги</th>\
+                        <td>' + (feature.properties['MTD'] !== null ? Autolinker.link(String(feature.properties['MTD'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Код ідентифікатор</th>\
+                        <td>' + (feature.properties['Id'] !== null ? Autolinker.link(String(feature.properties['Id'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Youthinfrastructure_7_0(feature) {
+            switch(String(feature.properties['Cod_type'])) {
+                case '1':
+                    return {
+                pane: 'pane_Youthinfrastructure_7',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/Center.svg',
+            iconSize: [28, 28]
+        }),
+            }
+                    break;
+                case '2':
+                    return {
+                pane: 'pane_Youthinfrastructure_7',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/Space.svg',
+            iconSize: [28, 28]
+        }),
+            }
+                    break;
+                case '3':
+                    return {
+                pane: 'pane_Youthinfrastructure_7',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/Other.svg',
+            iconSize: [28, 28]
+        }),
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_Youthinfrastructure_7');
+        map.getPane('pane_Youthinfrastructure_7').style.zIndex = 407;
+        map.getPane('pane_Youthinfrastructure_7').style['mix-blend-mode'] = 'normal';
+        var layer_Youthinfrastructure_7 = new L.geoJson(json_Youthinfrastructure_7, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Youthinfrastructure_7',
+            onEachFeature: pop_Youthinfrastructure_7,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_Youthinfrastructure_7_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_Youthinfrastructure_7);
+        map.addLayer(layer_Youthinfrastructure_7);
+        var osmGeocoder = new L.Control.OSMGeocoder({
+            collapsed: false,
+            position: 'topright',
+            text: 'Search',
+        });
+        osmGeocoder.addTo(map);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'Молодіжна інфраструктура<br /><table><tr><td style="text-align: center;"><img src="legend/Youthinfrastructure_7_Youthcenters0.png" /></td><td>Молодіжні центри</td></tr><tr><td style="text-align: center;"><img src="legend/Youthinfrastructure_7_Youthspaces1.png" /></td><td>Молодіжні простори</td></tr><tr><td style="text-align: center;"><img src="legend/Youthinfrastructure_7_Otheryouthinfrastructureinstitutions2.png" /></td><td>Інші заклади молодіжної інфраструтури</td></tr></table>': layer_Youthinfrastructure_7,'Заклади освіти<br /><table><tr><td style="text-align: center;"><img src="legend/Educationalinstitutions_6_School0.png" /></td><td>Заклади загальної середньої освіти</td></tr><tr><td style="text-align: center;"><img src="legend/Educationalinstitutions_6_Poza1.png" /></td><td>Заклади позашкільної освіти</td></tr><tr><td style="text-align: center;"><img src="legend/Educationalinstitutions_6_Profteh2.png" /></td><td>Заклади професійної (професійно-технічної) освіти</td></tr><tr><td style="text-align: center;"><img src="legend/Educationalinstitutions_6_Fah3.png" /></td><td>Заклади фахової передвищої освіти</td></tr><tr><td style="text-align: center;"><img src="legend/Educationalinstitutions_6_Zvo4.png" /></td><td>Заклади вищої освіти</td></tr><tr><td style="text-align: center;"><img src="legend/Educationalinstitutions_6_IRC5.png" /></td><td>Інклюзивно-ресурсні центри</td></tr></table>': layer_Educationalinstitutions_6,'<img src="legend/MTD_5.png" /> Діяльність проєктів міжнародної технічної допомоги': layer_MTD_5,'Заклади молодіжної інфраструктури в територіальних громадах<br /><table><tr><td style="text-align: center;"><img src="legend/Institutionsofyouthinfrastructureinterritorialcommunities_4_Missing0.png" /></td><td>Відсутні</td></tr><tr><td style="text-align: center;"><img src="legend/Institutionsofyouthinfrastructureinterritorialcommunities_4_131.png" /></td><td>1-3</td></tr><tr><td style="text-align: center;"><img src="legend/Institutionsofyouthinfrastructureinterritorialcommunities_4_472.png" /></td><td>4-7</td></tr></table>': layer_Institutionsofyouthinfrastructureinterritorialcommunities_4,'<img src="legend/Region_3.png" /> Адміністративні межі області': layer_Region_3,'<img src="legend/Terhromads_2.png" /> Адміністративні межі територіальних громад': layer_Terhromads_2,'<img src="legend/TOT_1.png" /> Тимчасово окуповані території України': layer_TOT_1,"Базова карта": overlay_Basemap_0,},{collapsed:false}).addTo(map);
+        setBounds();
+        </script>
+    </body>
+</html>
